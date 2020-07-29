@@ -1,0 +1,21 @@
+Team            Attack       Defense    
+Ascoli          0.99         1.57       
+Benevento       1.30         0.73       
+Chievo          0.95         1.14       
+Cittadella      0.94         1.36       
+Cosenza         0.88         1.19       
+Cremonese       0.80         1.17       
+Crotone         1.32         1.14       
+Empoli          0.92         1.23       
+Frosinone       0.83         1.08       
+Juve Stabia     0.96         1.71       
+Livorno         0.64         1.59       
+Perugia         0.76         1.27       
+Pescara         1.00         1.59       
+Pisa            1.00         1.30       
+Pordenone       0.95         1.27       
+Salernitana     1.04         1.39       
+Spezia          1.10         1.17       
+Trapani         0.94         1.75       
+Venezia         0.71         1.11       
+Virtus Entella  0.92         1.39       
