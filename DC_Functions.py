@@ -9,7 +9,7 @@ import math
 """ Parameters obtained from optimising. Decay weights results by age, to an exponential
 	function. Rho is a deviation from Poisson behaviour. Home advantage is a factor
 	to alter the distribution of home teams"""
-home_adv = 1.0
+home_adv = 1.1
 decay = 70.0
 rho = 0.03
 
