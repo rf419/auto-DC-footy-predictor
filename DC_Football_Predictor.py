@@ -4,24 +4,42 @@ from DC_Functions import *
 
 params = []
 results_csv = pd.DataFrame()
-fixtures = pd.read_csv('fixtures.csv', dtype={'MID': str})
+fixtures = pd.read_csv('fixtures.csv', dtype={'MarketId': str})
 print(fixtures)
 seasons_dict = {
 
     'main_leagues': {
 
         'current_seasons': {
-            'fra': 'https://www.football-data.co.uk/mmz4281/2021/F1.csv',
+            'epl': 'https://www.football-data.co.uk/mmz4281/2021/E0.csv',
+            'ech': 'https://www.football-data.co.uk/mmz4281/2021/E1.csv',
+            'el1': 'https://www.football-data.co.uk/mmz4281/2021/E2.csv',
+            'el2': 'https://www.football-data.co.uk/mmz4281/2021/E3.csv',
+            'sp1': 'https://www.football-data.co.uk/mmz4281/2021/SP1.csv',
+            'sp2': 'https://www.football-data.co.uk/mmz4281/2021/SP2.csv',
+            'fr1': 'https://www.football-data.co.uk/mmz4281/2021/F1.csv',
             'fr2': 'https://www.football-data.co.uk/mmz4281/2021/F2.csv',
+            'hol': 'https://www.football-data.co.uk/mmz4281/2021/N1.csv',
             'bel': 'https://www.football-data.co.uk/mmz4281/2021/B1.csv',
-            'sco': 'https://www.football-data.co.uk/mmz4281/2021/SC0.csv'
+            'sco': 'https://www.football-data.co.uk/mmz4281/2021/SC0.csv',
+            'tur': 'https://www.football-data.co.uk/mmz4281/2021/T1.csv',
+            'gre': 'https://www.football-data.co.uk/mmz4281/2021/G1.csv'
         },
 
         'previous_seasons': {
-            'fra': 'https://www.football-data.co.uk/mmz4281/1920/F1.csv',
+            'epl': 'https://www.football-data.co.uk/mmz4281/1920/E0.csv',
+            'ech': 'https://www.football-data.co.uk/mmz4281/1920/E1.csv',
+            'el1': 'https://www.football-data.co.uk/mmz4281/1920/E2.csv',
+            'el2': 'https://www.football-data.co.uk/mmz4281/1920/E3.csv',
+            'sp1': 'https://www.football-data.co.uk/mmz4281/1920/SP1.csv',
+            'sp2': 'https://www.football-data.co.uk/mmz4281/1920/SP2.csv',
+            'fr1': 'https://www.football-data.co.uk/mmz4281/1920/F1.csv',
             'fr2': 'https://www.football-data.co.uk/mmz4281/1920/F2.csv',
+            'hol': 'https://www.football-data.co.uk/mmz4281/1920/N1.csv',
             'bel': 'https://www.football-data.co.uk/mmz4281/1920/B1.csv',
-            'sco': 'https://www.football-data.co.uk/mmz4281/1920/SC0.csv'
+            'sco': 'https://www.football-data.co.uk/mmz4281/1920/SC0.csv',
+            'tur': 'https://www.football-data.co.uk/mmz4281/1920/T1.csv',
+            'gre': 'https://www.football-data.co.uk/mmz4281/1920/G1.csv'
         }
     },
 
@@ -33,7 +51,11 @@ seasons_dict = {
         'jpn': 'https://www.football-data.co.uk/new/JPN.csv',
         'nor': 'https://www.football-data.co.uk/new/NOR.csv',
         'swe': 'https://www.football-data.co.uk/new/SWE.csv',
-        'fin': 'https://www.football-data.co.uk/new/FIN.csv'
+        'fin': 'https://www.football-data.co.uk/new/FIN.csv',
+        'usa': 'https://www.football-data.co.uk/new/USA.csv',
+        'mex': 'https://www.football-data.co.uk/new/MEX.csv',
+        'bra': 'https://www.football-data.co.uk/new/BRA.csv',
+        'irl': 'https://www.football-data.co.uk/new/IRL.csv'
     }
 }
 
@@ -162,16 +184,23 @@ def main():
                 		d[i,j] = tau_matrix(home_mean, away_mean, i, j)*a[i]*b[j]
                 odds = print_probs(d)
 
+                # print_ability_table(ability_dict)
+                # prob_dist = pd.DataFrame( data=d,
+                #                           index=[0,1,2,3,4,5,6,7,8,9],
+                #                           columns=[0,1,2,3,4,5,6,7,8,9])
+                #
+                # prob_dist.to_csv('prob_dist.csv',mode='a')
+
                 div = fixtures.loc[row,['Div']].values[0]
                 DCHomeOdds = odds[0]
                 DCDrawOdds = odds[1]
                 DCAwayOdds = odds[2]
-                date 	   = fixtures.loc[row,['Date']].values[0]
-                mid        = fixtures.loc[row,['MID']].values[0]
+                date 	   = fixtures.loc[row,['OpenDate']].values[0]
+                mid        = fixtures.loc[row,['MarketId']].values[0]
 
-                params.append([div,date,mid,home_pred,away_pred,DCHomeOdds,DCDrawOdds,DCAwayOdds,0,0,0,0,0,0,0])
+                params.append([div,date,mid,home_pred,away_pred,DCHomeOdds,DCDrawOdds,DCAwayOdds])
 
-    pred = pd.DataFrame(params, columns=['Div','Date','MarketId','HomeTeam','AwayTeam','DCHomeOdds','DCDrawOdds','DCAwayOdds','BFCHome','BFCDraw', 'BFCAway','HomeMargin','DrawMargin','AwayMargin','FTR'])
+    pred = pd.DataFrame(params, columns=['Div','Date','MarketId','HomeTeam','AwayTeam','DCHomeOdds','DCDrawOdds','DCAwayOdds'])
 
     pred.to_csv("pred.csv", mode='a',header=False, index=False)
 

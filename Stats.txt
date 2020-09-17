@@ -1,30 +1,22 @@
 Team            Attack       Defense    
-Arka Gdynia     0.90         1.47       
-Cracovia        0.99         1.30       
-GKS Belchatow   0.66         1.16       
-Gornik Z.       1.03         1.41       
-Jagiellonia     1.07         1.35       
-Korona Kielce   0.85         1.42       
-LKS Lodz        0.66         0.93       
-Lech Poznan     1.17         0.98       
-Lechia Gdansk   1.01         1.23       
-Leczna          0.83         1.45       
-Legia           1.18         0.90       
-Legnica         0.78         1.33       
-Piast Gliwice   0.97         1.26       
-Podbeskidzie    0.88         1.22       
-Pogon Szczecin  0.93         1.31       
-Polonia Warszawa 1.15         1.16       
-Rakow           1.04         1.20       
-Ruch            0.87         1.44       
-Sandecja Nowy S. 0.67         1.04       
-Slask Wroclaw   0.99         1.28       
-Stal Mielec     0.68         0.98       
-Termalica B-B.  0.76         1.50       
-Warta Poznan    0.02         0.99       
-Widzew Lodz     0.75         1.48       
-Wisla           1.07         1.34       
-Wisla Plock     0.93         1.44       
-Zaglebie        0.75         1.23       
-Zaglebie Sosnowiec 0.97         1.59       
-Zawisza         0.93         1.48       
+Alanyaspor      1.50         0.85       
+Ankaragucu      0.77         1.29       
+Antalyaspor     1.02         1.19       
+Besiktas        1.47         0.94       
+Buyuksehyr      1.57         0.81       
+Denizlispor     0.77         1.18       
+Erzurum BB      1.55         1.20       
+Fenerbahce      1.42         1.09       
+Galatasaray     1.36         0.87       
+Gaziantep       1.21         1.20       
+Genclerbirligi  0.94         1.31       
+Goztep          1.17         1.15       
+Hatayspor       2.22         0.00       
+Karagumruk      2.29         0.00       
+Kasimpasa       1.26         1.35       
+Kayserispor     1.00         1.63       
+Konyaspor       0.88         1.20       
+Rizespor        0.94         1.33       
+Sivasspor       1.30         0.91       
+Trabzonspor     1.84         1.05       
+Yeni Malatyaspor 1.08         1.18       
