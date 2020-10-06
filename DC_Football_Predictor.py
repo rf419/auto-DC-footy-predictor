@@ -15,6 +15,10 @@ seasons_dict = {
             'ech': 'https://www.football-data.co.uk/mmz4281/2021/E1.csv',
             'el1': 'https://www.football-data.co.uk/mmz4281/2021/E2.csv',
             'el2': 'https://www.football-data.co.uk/mmz4281/2021/E3.csv',
+            'enl': 'https://www.football-data.co.uk/mmz4281/2021/EC.csv',
+            'gm1': 'https://www.football-data.co.uk/mmz4281/2021/D1.csv',
+            'gm2': 'https://www.football-data.co.uk/mmz4281/2021/D2.csv',
+            'it1': 'https://www.football-data.co.uk/mmz4281/2021/I1.csv',
             'sp1': 'https://www.football-data.co.uk/mmz4281/2021/SP1.csv',
             'sp2': 'https://www.football-data.co.uk/mmz4281/2021/SP2.csv',
             'fr1': 'https://www.football-data.co.uk/mmz4281/2021/F1.csv',
@@ -23,7 +27,8 @@ seasons_dict = {
             'bel': 'https://www.football-data.co.uk/mmz4281/2021/B1.csv',
             'sco': 'https://www.football-data.co.uk/mmz4281/2021/SC0.csv',
             'tur': 'https://www.football-data.co.uk/mmz4281/2021/T1.csv',
-            'gre': 'https://www.football-data.co.uk/mmz4281/2021/G1.csv'
+            'gre': 'https://www.football-data.co.uk/mmz4281/2021/G1.csv',
+            'por': 'https://www.football-data.co.uk/mmz4281/2021/P1.csv'
         },
 
         'previous_seasons': {
@@ -31,6 +36,10 @@ seasons_dict = {
             'ech': 'https://www.football-data.co.uk/mmz4281/1920/E1.csv',
             'el1': 'https://www.football-data.co.uk/mmz4281/1920/E2.csv',
             'el2': 'https://www.football-data.co.uk/mmz4281/1920/E3.csv',
+            'enl': 'https://www.football-data.co.uk/mmz4281/1920/EC.csv',
+            'gm1': 'https://www.football-data.co.uk/mmz4281/1920/D1.csv',
+            'gm2': 'https://www.football-data.co.uk/mmz4281/1920/D2.csv',
+            'it1': 'https://www.football-data.co.uk/mmz4281/1920/I1.csv',
             'sp1': 'https://www.football-data.co.uk/mmz4281/1920/SP1.csv',
             'sp2': 'https://www.football-data.co.uk/mmz4281/1920/SP2.csv',
             'fr1': 'https://www.football-data.co.uk/mmz4281/1920/F1.csv',
@@ -39,7 +48,8 @@ seasons_dict = {
             'bel': 'https://www.football-data.co.uk/mmz4281/1920/B1.csv',
             'sco': 'https://www.football-data.co.uk/mmz4281/1920/SC0.csv',
             'tur': 'https://www.football-data.co.uk/mmz4281/1920/T1.csv',
-            'gre': 'https://www.football-data.co.uk/mmz4281/1920/G1.csv'
+            'gre': 'https://www.football-data.co.uk/mmz4281/1920/G1.csv',
+            'por': 'https://www.football-data.co.uk/mmz4281/1920/P1.csv'
         }
     },
 
@@ -55,7 +65,10 @@ seasons_dict = {
         'usa': 'https://www.football-data.co.uk/new/USA.csv',
         'mex': 'https://www.football-data.co.uk/new/MEX.csv',
         'bra': 'https://www.football-data.co.uk/new/BRA.csv',
-        'irl': 'https://www.football-data.co.uk/new/IRL.csv'
+        'irl': 'https://www.football-data.co.uk/new/IRL.csv',
+        'den': 'https://www.football-data.co.uk/new/DNK.csv',
+        'aus': 'https://www.football-data.co.uk/new/AUT.csv',
+        'swz': 'https://www.football-data.co.uk/new/SWZ.csv'
     }
 }
 
@@ -65,32 +78,45 @@ extra = seasons_dict['extra_leagues']
 divisions = fixtures['Div'].unique()
 
 team_name_dict = {
- 'Inter Miami CF': 'Inter Miami'
+ 'Inter Miami CF': 'Inter Miami',
+ 'Atlanta Utd': 'Atlanta United',
+ 'Dalian Yifang F.C.': 'Dalian Pro',
+ 'ESTAC Troyes': 'Troyes',
+ 'KV Oostende': 'Oostende',
+ 'Hermannstadt': 'FC Hermannstadt',
+ 'Botosani': 'Botosani',
+ 'Dinamo Bucharest': 'Din. Bucuresti',
+ 'FC Khimki': 'Khimki',
+ 'Dinamo Moscow': 'Dynamo Moscow',
+ 'DC Utd': 'DC United',
+ 'New England': 'New England Revolution',
+ 'Philadelphia': 'Philadelphia Union',
+ 'Columbus': 'Columbus Crew',
+ 'Minnesota Utd': 'Minnesota United',
+ 'Colorado': 'Colorado Rapids',
+ 'Kansas City': 'Sporting Kansas City',
+ 'LA Galaxy': 'Los Angeles Galaxy',
+ 'Kalmar FF': 'Kalmar',
+ 'Varbergs BoIS': 'Varbergs',
+ 'FC Nordsjaelland': 'Nordsjaelland',
+ 'CF America': 'Club America',
+ 'HJK Helsinki': 'HJK',
+ 'RoPS': 'Rovaniemi',
+ 'FC Inter': 'Inter Turku',
+ 'Fortaleza EC': 'Fortaleza',
+ 'Hamburger SV': 'Hamburg',
 }
 
 remove_team_name_list = ['Verdy']
-
-def team_name_correction(row):
-    for key, val in team_name_dict.items():
-        if key in row['HomeTeam']:
-            results_csv.loc[row.name, 'HomeTeam'] = val
-        elif key in row['AwayTeam']:
-            results_csv.loc[row.name, 'AwayTeam'] = val
-
-    # for name in remove_team_name_list:
-    #     if name in row['HomeTeam']:
-    #         results_csv.drop([row.name], inplace=True)
-    #     elif name in row['AwayTeam']:
-    #         results_csv.drop([row.name], inplace=True)
 
 def aggregate(div):
 
     if ((div in main_latest) & (div in main_past)):
 
         data_current = seasons_dict['main_leagues']['current_seasons'][div]
-        data_current = pd.read_csv(data_current, dtype={'Date': str})
+        data_current = pd.read_csv(data_current, dtype={'Date': str},encoding='cp1252')
         data_past = seasons_dict['main_leagues']['previous_seasons'][div]
-        data_past = pd.read_csv(data_past, dtype={'Date': str})
+        data_past = pd.read_csv(data_past, dtype={'Date': str},encoding='cp1252')
         return data_past.append(data_current)
 
     elif div in extra:
@@ -109,9 +135,12 @@ def main():
 
     for div in divisions:
 
+        # try:
+
         results_csv = aggregate(div)
 
-        results_csv.apply(team_name_correction,axis=1)
+        results_csv['HomeTeam'] = results_csv['HomeTeam'].replace(team_name_dict)
+        results_csv['AwayTeam'] = results_csv['AwayTeam'].replace(team_name_dict)
 
         for row in fixtures.index:
 
@@ -119,8 +148,8 @@ def main():
 
                 home_teams = results_csv['HomeTeam']
                 away_teams = results_csv['AwayTeam']
-                teams = home_teams.append(away_teams)
-                teams = teams.unique()
+                teams_all = home_teams.append(away_teams)
+                teams = teams_all.unique()
 
                 """Read previous season's results"""
                 results_list = results_array(results_csv,teams)
@@ -128,9 +157,12 @@ def main():
                 home_pred = fixtures.loc[row,['HomeTeam']].values[0]#input("Enter home team: ")
                 away_pred = fixtures.loc[row,['AwayTeam']].values[0]#input("Enter away team: ")
 
+                home_played_count = teams_all.tolist().count(home_pred)
+                away_played_count = teams_all.tolist().count(away_pred)
+
                 print (" ")
                 print ("Predicting...")
-                print (home_pred, 'vs.', away_pred, "Last update: ", results_csv.tail(1)['Date'])
+                print (f"{home_pred} ({home_played_count}) vs. {away_pred} ({away_played_count}) Last update: {results_csv.tail(1)['Date'].values[0]}")
                 print (" ")
 
                 """ Assign each team an attacking parameter and a defensive parameter (randomly)"""
@@ -198,9 +230,11 @@ def main():
                 date 	   = fixtures.loc[row,['OpenDate']].values[0]
                 mid        = fixtures.loc[row,['MarketId']].values[0]
 
-                params.append([div,date,mid,home_pred,away_pred,DCHomeOdds,DCDrawOdds,DCAwayOdds])
+                params.append([div,date,mid,home_pred,away_pred,DCHomeOdds,DCDrawOdds,DCAwayOdds,home_played_count,away_played_count])
+        # except:
+        #     continue
 
-    pred = pd.DataFrame(params, columns=['Div','Date','MarketId','HomeTeam','AwayTeam','DCHomeOdds','DCDrawOdds','DCAwayOdds'])
+    pred = pd.DataFrame(params, columns=['Div','Date','MarketId','HomeTeam','AwayTeam','DCHomeOdds','DCDrawOdds','DCAwayOdds','HomePlayed','AwayPlayed'])
 
     pred.to_csv("pred.csv", mode='a',header=False, index=False)
 

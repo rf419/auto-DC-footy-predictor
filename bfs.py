@@ -12,7 +12,7 @@ scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/aut
 # # add credentials to the account
 creds = ServiceAccountCredentials.from_json_keyfile_name('pm.json', scope)
 
-# # authorize the clientsheet 
+# # authorize the clientsheet
 client = gspread.authorize(creds)
 
 # # get the instance of the Spreadsheet
@@ -42,16 +42,16 @@ def refresh_odds(row):
 
 	# Check if a stake has been set in the liability cell
 	lcell = sheet_instance.cell(srow, 32).value
-	
+
 	# If a stake exists then the bet has been placed so don't update the odds
 	if lcell == "":
-		
+
 		url  = 'https://ero.betfair.com/www/sports/exchange/readonly/v1/bymarket?_ak=nzIFcwyWhrlwYMrh&alt=json&currencyCode=GBP&locale=en_GB&marketIds='+marketId+'&rollupLimit=2&rollupModel=STAKE&types=MARKET_DESCRIPTION,EVENT,RUNNER_DESCRIPTION,RUNNER_EXCHANGE_PRICES_BEST'
 
 		res = r.get(url)
 
 		data = res.json()
-		
+
 		eventNodes  = data['eventTypes'][0]['eventNodes']
 
 		for events in eventNodes:

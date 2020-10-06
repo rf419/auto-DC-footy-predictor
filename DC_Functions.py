@@ -9,7 +9,7 @@ import math
 """ Parameters obtained from optimising. Decay weights results by age, to an exponential
 	function. Rho is a deviation from Poisson behaviour. Home advantage is a factor
 	to alter the distribution of home teams"""
-home_adv = 1.1
+home_adv = 1.2
 decay = 70.0
 rho = 0.03
 
@@ -70,8 +70,8 @@ def log_likelihood(results_list, ability_dict) :
 			tau = tau_matrix(home_mean, away_mean, home_goals, away_goals)
 			total += (math.log(home_dist[home_goals]) \
 			+ math.log(away_dist[away_goals]) + math.log(tau))
-	#		total += math.exp(- decay * days) * (math.log(home_dist[home_goals]) \
-	#		+ math.log(away_dist[away_goals]) + math.log(tau))
+			# total += math.exp(- decay * days) * (math.log(home_dist[home_goals]) \
+			# + math.log(away_dist[away_goals]) + math.log(tau))
 	return total
 
 """ Distribution of results doesn't fit Poisson perfectly, altered slighly

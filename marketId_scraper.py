@@ -14,7 +14,7 @@ competitions_dict = {
         'el2': '37',
         'sp1': '117',
         'sp2': '12204313',
-        'It1': '81',
+        'it1': '81',
         'fr1': '55',
         'fr2': '57',
         'hol': '9404054',
@@ -25,6 +25,7 @@ competitions_dict = {
         'rom': '4905',
         'pol': '97',
         'rus': '101',
+        'chn': '879931',
         'usa': '141',
         'swe': '129',
         'jpn': '89',
@@ -33,7 +34,13 @@ competitions_dict = {
         'mex': '5627174',
         'irl': '12203971',
         'fin': '45',
-        'bra': '13'
+        'bra': '13',
+        'por': '99',
+        'aus': '10479956',
+        'gm1': '59',
+        'gm2': '61',
+        'swz': '133',
+        'enl': '11086347'
     }
 
 def get_marketIds():
@@ -46,6 +53,7 @@ def get_marketIds():
 
         data = res.json()
 
+        # todays_date = datetime.now().date()
         tomorrows_date = datetime.now().date() + timedelta(days=1)
 
         try:
@@ -87,6 +95,6 @@ def get_marketIds():
             continue
 
     marketId_df = pd.DataFrame(params, columns=['Div','HomeTeam','AwayTeam','OpenDate','MarketId'])
-    marketId_df.to_csv("fixtures.csv", mode='a',header=False, index=False)
+    marketId_df.to_csv("fixtures.csv", index=False)
 
 get_marketIds()

@@ -1,22 +1,28 @@
 Team            Attack       Defense    
-Alanyaspor      1.50         0.85       
-Ankaragucu      0.77         1.29       
-Antalyaspor     1.02         1.19       
-Besiktas        1.47         0.94       
-Buyuksehyr      1.57         0.81       
-Denizlispor     0.77         1.18       
-Erzurum BB      1.55         1.20       
-Fenerbahce      1.42         1.09       
-Galatasaray     1.36         0.87       
-Gaziantep       1.21         1.20       
-Genclerbirligi  0.94         1.31       
-Goztep          1.17         1.15       
-Hatayspor       2.22         0.00       
-Karagumruk      2.29         0.00       
-Kasimpasa       1.26         1.35       
-Kayserispor     1.00         1.63       
-Konyaspor       0.88         1.20       
-Rizespor        0.94         1.33       
-Sivasspor       1.30         0.91       
-Trabzonspor     1.84         1.05       
-Yeni Malatyaspor 1.08         1.18       
+Aldershot       0.88         1.06       
+Altrincham      0.00         0.00       
+Barnet          1.15         0.99       
+Barrow          1.45         0.84       
+Boreham Wood    1.18         0.81       
+Bromley         1.22         1.02       
+Chesterfield    1.16         1.30       
+Chorley         0.63         1.25       
+Dag and Red     0.83         0.92       
+Dover Athletic  0.99         0.96       
+Eastleigh       1.00         1.08       
+Ebbsfleet       0.97         1.30       
+Fylde           0.95         1.20       
+Halifax         1.04         0.99       
+Harrogate       1.27         0.91       
+Hartlepool      1.17         0.97       
+King’s Lynn     1.47         1.39       
+Maidenhead      0.92         1.18       
+Notts County    1.22         0.76       
+Solihull        1.00         0.73       
+Stockport       1.01         1.04       
+Sutton          1.01         0.80       
+Torquay         1.20         1.05       
+Weymouth        0.00         0.00       
+Woking          1.06         1.10       
+Wrexham         0.99         1.01       
+Yeovil          1.29         0.92       
